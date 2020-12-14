@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="vendors/css/animate.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
-    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Omnifood</title>
     
     <link rel="apple-touch-icon" sizes="180x180" href="resources/favicons/apple-touch-icon.png">
@@ -389,7 +389,7 @@ All our vegetables are fresh, organic and local. Animals are raised without adde
         
         </div>
     <div class="row">
-        <form method="post" action="#" class="contact-form">
+        <form id="submit-form" action="">
             
             
             <div class="row">
@@ -498,6 +498,25 @@ All our vegetables are fresh, organic and local. Animals are raised without adde
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="resources/js/script.js"></script>
     <script src="vendors/js/jquery.waypoints.min.js"></script>
+     <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbxLOCnlbhiEmlOqf6REzDsdjBy2TA53hBM4AtlXViX7C9wmEHNb/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
     </body>
 
 
